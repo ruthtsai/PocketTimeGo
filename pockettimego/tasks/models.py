@@ -6,6 +6,7 @@ class Task(models.Model):
         ('紙筆', '紙筆'),
         ('平板', '平板'),
         ('安靜空間', '安靜空間'),
+        ('其他','其他')
     ]
 
     title = models.CharField(max_length=100)

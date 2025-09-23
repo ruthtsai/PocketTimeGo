@@ -1,11 +1,15 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+User = get_user_model()
 class Location(models.Model):
     LOCATION_TYPES = [
         ("quiet", "安靜空間"),
         ("charging", "可充電"),
         ("general", "一般空間"),
+        ("room", "房間"),
+        ("exercise", "運動空間"),
+        ("eat", "飲食空間"),
     ]
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=20, choices=LOCATION_TYPES)
@@ -25,7 +29,7 @@ class Course(models.Model):
         (6, "星期六"),
         (7, "星期日"),
     ]
-   
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses',default=1)
     name = models.CharField(max_length=100)
     weekday = models.IntegerField(choices=WEEKDAYS)
     start_time = models.TimeField()
