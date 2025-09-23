@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新增任務</title>
+</head>
+<body>
+<h1>新增任務</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">送出</button>
+</form>
+<a href="{% url 'task_list' %}">返回任務清單</a>
+</body>
+</html>

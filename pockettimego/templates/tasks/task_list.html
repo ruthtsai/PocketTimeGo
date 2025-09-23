@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>任務清單</title>
+</head>
+<body>
+<h1>任務清單</h1>
+<a href="{% url 'create_task' %}">新增任務</a>
+<ul>
+    {% for task in tasks %}
+        <li>{{ task.title }} - {{ task.estimated_time }} 分鐘 - {{ task.environment }}</li>
+    {% empty %}
+        <li>目前沒有任務</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
