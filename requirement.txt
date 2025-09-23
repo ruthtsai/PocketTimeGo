@@ -1,0 +1,11 @@
+# Web framework
+Django>=5.0,<6.0
+
+# Google Gemini API (新 SDK)
+google-genai>=0.3.0
+
+# 環境變數管理
+python-dotenv>=1.0.1
+
+# 常用工具
+requests>=2.31.0
