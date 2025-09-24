@@ -75,10 +75,6 @@ def find_free_slots(user, weekday):
 
     return free_slots
 
-from datetime import datetime, timedelta
-from .utils import match_task_to_location
-from location.models import Location
-
 def recommend_today(user, weekday, tasks):
     """
     Prototype: 最簡可執行的最佳化推薦 (優化版)
