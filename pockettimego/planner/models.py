@@ -4,12 +4,14 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 class Location(models.Model):
     LOCATION_TYPES = [
-        ("quiet", "安靜空間"),
-        ("charging", "可充電"),
-        ("general", "一般空間"),
-        ("room", "房間"),
-        ("exercise", "運動空間"),
-        ("eat", "飲食空間"),
+        ("library", "圖書館/自習室 (安靜空間)"),
+        ("computer_lab", "電腦教室"),
+        ("cafe", "咖啡廳/學生餐廳"),
+        ("dorm", "宿舍/房間/家事區域"),
+        ("gym", "運動場/健身房"),
+        ("outdoor", "戶外空間/草地"),
+        ("charging", "可充電區域"),
+        ("general", "一般公共區域"),
     ]
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=20, choices=LOCATION_TYPES)

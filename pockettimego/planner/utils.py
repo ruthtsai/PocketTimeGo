@@ -5,6 +5,28 @@ from task.models import Task
 # utils.py
 import math
 
+# Task.environment 與 Location.type 對應表
+ENV_TO_LOCATION = {
+    "laptop": ["library", "computer_lab", "cafe", "charging"],
+    "writing": ["library", "cafe", "dorm"],
+    "tablet": ["library", "computer_lab", "cafe", "charging"],
+    "quiet": ["library", "dorm", "charging"],
+    "group": ["cafe", "outdoor"],
+    "exercise": ["gym", "outdoor"],
+    "eat": ["cafe", "dorm"],
+    "laundry": ["dorm"],
+    "relax": ["dorm", "outdoor", "cafe"],
+    "other": ["general"]
+}
+
+def match_task_to_location(task: Task):
+    """
+    根據 task.environment 推薦可能的地點清單
+    """
+    env = task.environment
+    possible_types = ENV_TO_LOCATION.get(env, ["general"])
+    return Location.objects.filter(type__in=possible_types)
+
 def get_distance_minutes(location1, location2):
     """
     計算兩個 Location 物件之間的步行時間
@@ -53,11 +75,16 @@ def find_free_slots(user, weekday):
 
     return free_slots
 
+from datetime import datetime, timedelta
+from .utils import match_task_to_location
+from location.models import Location
+
 def recommend_today(user, weekday, tasks):
     """
-    Prototype: 最簡可執行的最佳化推薦
+    Prototype: 最簡可執行的最佳化推薦 (優化版)
     - 按 priority 排序
     - 找出能放進 free_slot 的任務
+    - 使用 match_task_to_location() 篩選地點
     - 選擇距離最近的地點
     """
 
@@ -72,8 +99,8 @@ def recommend_today(user, weekday, tasks):
         task_time = task.get("estimated_time", 30)  # 預設30分鐘
         env = task.get("environment", "general")
 
-        # 找候選地點
-        loc_candidates = Location.objects.filter(type=env)
+        # ✅ 改用 utils.match_task_to_location()
+        loc_candidates = match_task_to_location(task)
         if not loc_candidates.exists():
             loc_candidates = Location.objects.all()
 
