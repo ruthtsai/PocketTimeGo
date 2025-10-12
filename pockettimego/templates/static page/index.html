@@ -67,13 +67,27 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="d-flex align-items-center">
-      <img src="../../static/image/Pockettimego_icon_large.png" alt="POCKET TIME GO Icon">
-      <div class="ms-3">
-        <h5 class="mb-0">POCKET TIME GO</h5>
-        <small>我要成為時間管理大師！</small>
+    <a href="index.html" class="link-block">
+      <div class="d-flex align-items-center">
+        <img src="../../static/image/Pockettimego_icon_large.png" alt="POCKET TIME GO Icon">
+        <div class="ms-3">
+          <h5 class="mb-0">POCKET TIME GO</h5>
+          <small>我要成為時間管理大師！</small>
+        </div>
       </div>
-    </div>
+    </a>
+
+    <style>
+  .link-block {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+  .link-block:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+</style>
 
     <!-- 使用者 icon -->
     <div class="user-menu dropdown">
@@ -83,7 +97,7 @@
       </span>
       <ul class="dropdown-menu" aria-labelledby="userMenuButton">
         <li><a class="dropdown-item" href="#today-schedule">今日行程</a></li>
-        <li><a class="dropdown-item" href="#import-schedule">匯入課表</a></li>
+        <li><a class="dropdown-item" href="schedule.html">匯入課表</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item text-danger" href="#">登出</a></li>
       </ul>
@@ -137,7 +151,7 @@
     </section>
 
     <!-- 匯入課表 -->
-    <section id="import-schedule" class="mb-4">
+    <!-- <section id="import-schedule" class="mb-4">
       <h5>匯入課表 (.csv)</h5>
       <div class="card shadow-sm">
         <div class="card-body">
@@ -149,7 +163,7 @@
           </form>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- 新增任務 -->
     <section id="task-input" class="mb-4">

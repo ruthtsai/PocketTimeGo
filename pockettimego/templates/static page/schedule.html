@@ -3,19 +3,371 @@
 <head>
   <meta charset="UTF-8">
   <title>匯入課表 | POCKET TIME GO</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+  <style>
+    :root {
+      --primary-color: #316a99;
+      --secondary-color: #ffc226;
+    }
 
+    body {
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 50px;
+      width: auto;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      right: 0;
+      left: auto;
+    }
+
+    h5 {
+      color: var(--primary-color);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .btn-primary:hover {
+      background-color: #24527a;
+      border-color: #24527a;
+    }
+
+    .card-header {
+      background-color: var(--secondary-color);
+      color: black;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <iframe src="/include/header.html" frameborder="0" style="width:100%;height:70px;" scrolling="no"></iframe>
-  <div id="header-placeholder"></div>
+    <!-- <iframe src="/include/header.html" frameborder="0" style="width:100%;height:70px;" scrolling="no"></iframe> -->
+  <!-- <div id="header-placeholder"></div> -->
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="link-block">
+      <div class="d-flex align-items-center">
+        <img src="../../static/image/Pockettimego_icon_large.png" alt="POCKET TIME GO Icon">
+        <div class="ms-3">
+          <h5 class="mb-0">POCKET TIME GO</h5>
+          <small>我要成為時間管理大師！</small>
+        </div>
+      </div>
+    </a>
 
+    <style>
+  .link-block {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+  .link-block:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #fff;
+  }
+
+  .bg-gradient-blue {
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+  }
+  .bg-gradient-purple {
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+  }
+  .bg-gradient-green {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+  }
+  .bg-gradient-orange {
+    background: linear-gradient(to right, #f7971e, #ffd200);
+    color: #000;
+  }
+  .bg-gradient-red {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+  }
+  .bg-gradient-pink {
+    background: linear-gradient(to right, #ff9a9e, #fecfef);
+    color: #000;
+  }
+  .bg-gradient-night {
+    background: linear-gradient(to right, #141e30, #243b55);
+  }
+  .bg-gradient-sky {
+    background: linear-gradient(to right, #89f7fe, #66a6ff);
+    color: #000;
+  }
+  .bg-gradient-lime {
+    background: linear-gradient(to right, #a8ff78, #78ffd6);
+    color: #000;
+  }
+  .bg-gradient-fire {
+    background: linear-gradient(to right, #f83600, #f9d423);
+    color: #000;
+  }
+  .td-gradient-blue     { background: linear-gradient(to right, #6ec8ed, #5d9fe5); color: #003B73; }
+.td-gradient-purple   { background: linear-gradient(to right, #9d6ff7, #873de0); color: #4a00e0; }
+.td-gradient-green    { background: linear-gradient(to right, #38cbb0, #2fcf91); color: #0e5c5c; }
+.td-gradient-orange   { background: linear-gradient(to right, #ffcb70, #ffdd4d); color: #8a4b08; }
+.td-gradient-red      { background: linear-gradient(to right, #ff7260, #ff4f84); color: #8a0d2e; }
+.td-gradient-pink     { background: linear-gradient(to right, #ff8ea4, #ffb3c8); color: #7a214d; }
+.td-gradient-night    { background: linear-gradient(to right, #2d3b55, #3c4a70); color: #fff; }
+.td-gradient-sky      { background: linear-gradient(to right, #50e0ff, #55c7ff); color: #003B73; }
+.td-gradient-lime     { background: linear-gradient(to right, #b3ff50, #99e84d); color: #4d7c0f; }
+.td-gradient-fire     { background: linear-gradient(to right, #ff9f50, #ffd04d); color: #8a3c00; }
+
+
+</style>
+
+    <!-- 使用者 icon -->
+    <div class="user-menu dropdown">
+      <span class="material-symbols-outlined dropdown-toggle" id="userMenuButton" data-bs-toggle="dropdown"
+        aria-expanded="false" style="cursor:pointer; font-size: 36px;">
+        account_circle
+      </span>
+      <ul class="dropdown-menu" aria-labelledby="userMenuButton">
+        <li><a class="dropdown-item" href="index.html">首頁</a></li>
+        <!-- <li><a class="dropdown-item" href="#import-schedule">匯入課表</a></li> -->
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="#">登出</a></li>
+      </ul>
+    </div>
+  </header>
   <div class="container mt-4">
+    <!-- 每週課表顯示 -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h3>我的課表</h3>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered text-center">
+                <thead class="table-warning">
+                  <tr>
+                    <th style="width: 10%;">時間</th>
+                    <th style="width: 12.5%;">星期一</th>
+                    <th style="width: 12.5%;">星期二</th>
+                    <th style="width: 12.5%;">星期三</th>
+                    <th style="width: 12.5%;">星期四</th>
+                    <th style="width: 12.5%;">星期五</th>
+                    <th style="width: 12.5%;">星期六</th>
+                    <th style="width: 12.5%;">星期日</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-bold">08:10-09:00</td>
+                    <td class="table-primary">計算機概論<br><small>SC101</small></td>
+                    <td></td>         
+                    <td></td>
+                    <td class="table-success">資料結構<br><small>SC549</small></td>
+                    <td class="table-info">後醫淺談<br><small>Y303</small></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">09:10-10:00</td>
+                    <td class="table-primary">計算機概論<br><small>SC101</small></td>
+                    <td class="table-warning">線性代數<br><small>SC201</small></td>
+                    <td></td>
+                    <td class="table-success">資料結構<br><small>SC549</small></td>
+                    <td class="table-info">後醫淺談<br><small>Y303</small></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">10:10-11:00</td>
+                    <td></td>
+                    <td class="table-warning">線性代數<br><small>SC201</small></td>
+                    <td class="table-danger">羽球<br><small>體育館</small></td>
+                    <td></td>      
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">11:10-12:00</td>
+                    <td></td>
+                    <td></td>
+                    <td class="table-danger">羽球<br><small>體育館</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">12:00-13:00</td>
+                    <td class="table-secondary">午餐時間</td>
+                    <td class="table-secondary">午餐時間</td>
+                    <td class="table-secondary">午餐時間</td>
+                    <td class="table-secondary">午餐時間</td>
+                    <td class="table-secondary">午餐時間</td>
+                    <td class="table-secondary">午餐時間</td>
+                    <td class="table-secondary">午餐時間</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">13:10-14:00</td>
+                    <td class="table-light">程式設計<br><small>SC401</small></td>
+                    <td></td>
+                    <td class="td-gradient-blue">助教課<br><small>社館大樓</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">14:10-15:00</td>
+                    <td class="table-light">程式設計<br><small>SC401</small></td>
+                    <td class="table-dark text-white">演算法<br><small>SC501</small></td>
+                    <td class="td-gradient-green">會計學(一)<br><small>社館大樓</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">15:00-16:00</td>
+                    <td></td>
+                    <td class="table-dark text-white">演算法<br><small>SC501</small></td>
+                    <td class="td-gradient-green">會計學(一)<br><small>社館大樓</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">16:10-17:00</td>
+                    <td></td>
+                    <td></td>
+                    <td class="td-gradient-green">會計學(一)<br><small>社館大樓</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">17:10-18:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">18:20-19:10</td>
+                    <td></td>
+                    <td></td>
+                    <td class="td-gradient-fire">通識<br><small>綜合大樓</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold">19:15-20:05</td>
+                    <td></td>
+                    <td></td>
+                    <td class="td-gradient-fire">通識<br><small>綜合大樓</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- 課表圖例 -->
+            <div class="mt-3">
+              <h6>課表圖例</h6>
+              <div class="row">
+                <div class="col-md-6">
+                  <span class="tag bg-primary me-2">計算機概論</span>
+                  <span class="tag bg-success me-2">資料結構</span>
+                  <span class="tag bg-info me-2">後醫淺談</span>
+                  <span class="tag bg-warning me-2">線性代數</span>
+                  <span class="tag bg-gradient-blue">助教課</span>
+                  <span class="tag bg-gradient-green">會計學(一)</span>
+                  <span class="tag bg-gradient-fire">通識</span>
+                </div>
+                <div class="col-md-6">
+                  <span class="badge bg-danger me-2">羽球</span>
+                  <span class="badge bg-light text-dark me-2">程式設計</span>
+                  <span class="badge bg-dark me-2">演算法</span>
+                  <span class="badge bg-secondary me-2">午餐時間</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 匯入課表功能 - 原始版本 (已註解) -->
+    <!--
     <h3>匯入課表 (.csv)</h3>
     <p>請上傳橫軸為星期、縱軸為時間的課表資料</p>
-    <input type="file" class="form-control mb-3" accept=".csv">
-    <button class="btn btn-primary" style="background-color:#316a99;">匯入課表</button>
+    <form>
+      <div class="mb-3">
+        <input type="file" class="form-control" id="scheduleFile" accept=".csv">
+      </div>
+      <button type="button" class="btn btn-primary w-100">上傳課表</button>
+    </form>
+    -->
+
+    <!-- 匯入課表功能 - 新版本 -->
+    <div class="row">
+      <div class="col-12">
+        <h3>匯入課表 (.csv)</h3>
+        <p>請上傳橫軸為星期、縱軸為時間的課表資料</p>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="scheduleFile" class="form-label">選擇課表檔案</label>
+                <input type="file" class="form-control" id="scheduleFile" accept=".csv">
+                <div class="form-text">支援 CSV 格式檔案，請確保檔案格式正確</div>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" class="btn btn-outline-secondary me-md-2">預覽</button>
+                <button type="button" class="btn btn-primary">上傳課表</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
 </html>
