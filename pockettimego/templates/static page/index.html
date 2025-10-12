@@ -28,6 +28,11 @@
       justify-content: space-between;
     }
 
+    thead {
+    background-color: var(--secondary-color); /* 背景使用 secondary-color */
+    color: var(--primary-color);              /* 文字使用 primary-color */
+    }
+
     header img {
       height: 50px;
       width: auto;
@@ -61,24 +66,8 @@
       color: black;
       font-weight: bold;
     }
-  </style>
-</head>
-
-<body>
-  <!-- Header -->
-  <header>
-    <a href="index.html" class="link-block">
-      <div class="d-flex align-items-center">
-        <img src="../../static/image/Pockettimego_icon_large.png" alt="POCKET TIME GO Icon">
-        <div class="ms-3">
-          <h5 class="mb-0">POCKET TIME GO</h5>
-          <small>我要成為時間管理大師！</small>
-        </div>
-      </div>
-    </a>
-
-    <style>
-  .link-block {
+    /* header */
+      .link-block {
     text-decoration: none;
     color: inherit;
     display: inline-block;
@@ -87,7 +76,18 @@
     cursor: pointer;
     opacity: 0.8;
   }
-</style>
+
+  </style>
+</head>
+
+<body class="bg-light">
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="link-block">
+      <div class="d-flex align-items-center">
+        <img src="../../static/image/Pockettimego_text_small.png" alt="POCKET TIME GO Icon">
+      </div>
+    </a>
 
     <!-- 使用者 icon -->
     <div class="user-menu dropdown">
@@ -97,7 +97,7 @@
       </span>
       <ul class="dropdown-menu" aria-labelledby="userMenuButton">
         <li><a class="dropdown-item" href="#today-schedule">今日行程</a></li>
-        <li><a class="dropdown-item" href="schedule.html">匯入課表</a></li>
+        <li><a class="dropdown-item" href="schedule.html">我的課表</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item text-danger" href="#">登出</a></li>
       </ul>
@@ -105,14 +105,29 @@
   </header>
 
   <div class="container my-4">
+    <!-- 新增任務 -->
+    <section id="task-input" class="mb-4">
+      <h5>新增任務</h5>
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="task-name" placeholder="輸入任務名稱" value="洗衣服">
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" id="task-desc" rows="3" placeholder="輸入任務細節">宿舍</textarea>
+          </div>
+          <button class="btn btn-primary w-100" id="submit-task">產生建議行程</button>
+        </div>
+      </div>
+    </section>
 
     <!-- 課表 -->
     <section id="today-schedule" class="mb-4">
-      <h5>你的課表</h5>
+      <h5>今日課表</h5>
       <div class="card shadow-sm">
         <div class="card-body">
           <table class="table table-bordered text-center">
-            <thead class="table-warning">
+            <thead>
               <tr>
                 <th>時間</th>
                 <th>課程名稱</th>
@@ -146,37 +161,6 @@
               <li class="list-group-item">星期二 08:00-10:00</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 匯入課表 -->
-    <!-- <section id="import-schedule" class="mb-4">
-      <h5>匯入課表 (.csv)</h5>
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <form>
-            <div class="mb-3">
-              <input type="file" class="form-control" id="scheduleFile" accept=".csv">
-            </div>
-            <button type="button" class="btn btn-primary w-100">上傳課表</button>
-          </form>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- 新增任務 -->
-    <section id="task-input" class="mb-4">
-      <div class="card shadow-sm">
-        <div class="card-header">新增任務</div>
-        <div class="card-body">
-          <div class="mb-3">
-            <input type="text" class="form-control" id="task-name" placeholder="輸入任務名稱" value="洗衣服">
-          </div>
-          <div class="mb-3">
-            <textarea class="form-control" id="task-desc" rows="3" placeholder="輸入任務細節">宿舍</textarea>
-          </div>
-          <button class="btn btn-primary w-100" id="submit-task">產生建議行程</button>
         </div>
       </div>
     </section>

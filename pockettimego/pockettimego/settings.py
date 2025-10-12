@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     # 自己的 apps
     'tasks',
     'planner',
+    'accounts',
+    'captcha',
 ]
 
 

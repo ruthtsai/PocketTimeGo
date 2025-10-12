@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<meta charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>註冊|POCKET TIME GO</title>
+  <title>登入 | POCKET TIME GO</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet"
@@ -60,21 +61,22 @@
       color: black;
       font-weight: bold;
     }
+
     .text-main {
       color: #316a99 !important;
       font-weight: bold;
     }
+
     /* header */
       .link-block {
     text-decoration: none;
     color: inherit;
     display: inline-block;
-    }
-    .link-block:hover {
-      cursor: pointer;
-      opacity: 0.8;
-    }
-
+  }
+  .link-block:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
   </style>
 </head>
 
@@ -103,17 +105,16 @@
     <div class="align-items-center">
         <img src="../../static/image/Pockettimego_icon_large.png" alt="POCKET TIME GO Icon" style="height:100px; width:auto;">
     </div>
-    <h2 class="mb-4 text-main ">建立新帳號</h2>
+    <h2 class="mb-4 text-main">登入帳號</h2>
     <form class="mx-auto" style="max-width:400px;">
-      <input type="text" class="form-control mb-3" placeholder="使用者名稱" required>
       <input type="email" class="form-control mb-3" placeholder="電子郵件" required>
       <input type="password" class="form-control mb-3" placeholder="密碼" required>
-      <button class="btn w-100" style="background-color:#316a99;color:white;">註冊</button>
-      <p class="mt-3">已有帳號？<a href="login.html">登入</a></p>
+      <button class="btn w-100" style="background-color:#316a99;color:white;">登入</button>
+      <p class="mt-3">還沒有帳號？<a href="register.html">建立新帳號</a></p>
     </form>
   </div>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 </body>
