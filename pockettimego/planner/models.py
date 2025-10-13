@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from accounts.models import CustomUser
+from django.conf import settings # 引入 settings 來取得 AUTH_USER_MODEL
 
 User = get_user_model()
 class Location(models.Model):
@@ -31,7 +33,7 @@ class Course(models.Model):
         (6, "星期六"),
         (7, "星期日"),
     ]
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses',default=1)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='courses',default=1)
     name = models.CharField(max_length=100)
     weekday = models.IntegerField(choices=WEEKDAYS)
     start_time = models.TimeField()
@@ -40,3 +42,4 @@ class Course(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.get_weekday_display()})"
+    
