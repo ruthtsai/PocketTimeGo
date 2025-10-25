@@ -5,9 +5,6 @@ import json
 import re
 import time
 
-# 載入 .env
-load_dotenv()
-
 # 設定 API key
 API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=API_KEY)
